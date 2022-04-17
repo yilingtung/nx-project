@@ -3,9 +3,9 @@ const { join } = require('path');
 
 module.exports = {
   mode: 'jit',
-  presets: [require('../../tailwind-workspace-preset.js')],
+  presets: [require('../../../tailwind-workspace-preset.js')],
   content: [
-    join(__dirname, 'pages/**/*.{js,ts,jsx,tsx}'),
+    join(__dirname, 'src/**/*.{js,ts,jsx,tsx}'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   darkMode: 'media', // or 'media' or 'class'
