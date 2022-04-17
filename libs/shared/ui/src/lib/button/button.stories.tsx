@@ -1,26 +1,40 @@
 import { Story, Meta } from '@storybook/react';
-import { useState } from 'react';
 import { Button, ButtonProps } from './button';
 
 export default {
   component: Button,
   title: 'Button',
   argTypes: {
-    onClick: { action: 'onClick executed!' },
+    children: {
+      control: { type: 'text' },
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    size: {
+      options: ['xs', 'sm', 'md'],
+      control: { type: 'select' },
+    },
+    kind: {
+      options: ['primary', 'secondary', 'outline'],
+      control: { type: 'select' },
+    },
+    shape: {
+      options: ['squard', 'round'],
+      control: { type: 'select' },
+    },
   },
 } as Meta;
 
-const Template: Story<ButtonProps> = (args) => {
-  const [clickedTopic, setClickedTopic] = useState<string | null>(null);
-  return (
-    <div className="bg-gray-100 p-20">
-      <Button {...args} onClick={(topicName) => setClickedTopic(topicName)} />
-      {clickedTopic && <div>Button has been clicked: {clickedTopic}</div>}
-    </div>
-  );
-};
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  topicName: 'Next.js',
+export const Default = Template.bind({});
+Default.args = {
+  children: 'Button',
+  disabled: false,
+  size: 'sm',
+  kind: 'primary',
+  shape: 'squard',
 };
