@@ -1,0 +1,42 @@
+.btn {
+  @apply inline-flex justify-center items-center flex-grow-0 flex-shrink-0 border-solid border transition ease-in-out duration-300;
+}
+
+.btn[disabled] {
+  @apply disabled:cursor-not-allowed disabled:bg-netural-50 disabled:border-netural-50;
+}
+
+.btn:not([disabled]).kind-primary {
+  @apply bg-primary border-primary hover:border-primary-dark hover:bg-primary-dark focus:border-primary-dark focus:bg-primary-dark active:border-primary-dark active:bg-primary-dark;
+}
+
+.btn:not([disabled]).kind-secondary {
+  @apply bg-netural-20 border-netural-20 hover:border-netural-30 hover:bg-netural-30 focus:border-netural-30 focus:bg-netural-30 active:border-netural-70 active:bg-netural-70;
+}
+
+.btn:not([disabled]).kind-outline {
+  @apply border-netural-70 hover:bg-netural-30 focus:bg-netural-30 active:bg-netural-70;
+}
+
+.btn.size-xs > * {
+  @apply not-last:mr-[4px];
+}
+
+.btn.size-sm > *,
+.btn.size-md > * {
+  @apply not-last:mr-[8px];
+}
+
+.icon {
+  pointer-events: none;
+}
+
+.btn[disabled] .icon path,
+.btn:not([disabled]).kind-primary .icon path {
+  @apply fill-netural-10 stroke-netural-10;
+}
+
+.btn:not([disabled]).kind-secondary .icon path,
+.btn:not([disabled]).kind-outline .icon path {
+  @apply fill-netural-70 stroke-netural-70 group-active:fill-netural-10 group-active:stroke-netural-10;
+}

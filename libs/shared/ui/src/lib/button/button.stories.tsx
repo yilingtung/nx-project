@@ -1,6 +1,8 @@
 import { Story, Meta } from '@storybook/react';
 import { Button, ButtonProps } from './button';
 
+import { ReactComponent as PlusSvg } from '../../assets/icons/plus.svg';
+
 export default {
   component: Button,
   title: 'Button',
@@ -37,4 +39,16 @@ Default.args = {
   size: 'sm',
   kind: 'primary',
   shape: 'squard',
+};
+
+export const WithIconLeft = Template.bind({});
+WithIconLeft.args = {
+  ...Default.args,
+  IconLeft: { SVG: PlusSvg, type: 'fill' },
+};
+
+export const WithIconRight = Template.bind({});
+WithIconRight.args = {
+  ...Default.args,
+  IconRight: { SVG: PlusSvg, type: 'fill' },
 };

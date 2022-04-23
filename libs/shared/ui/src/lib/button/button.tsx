@@ -1,7 +1,10 @@
 import classnames from 'classnames';
 
+import { SVGIconProps } from '@nx-project/shared/types';
+
 import { ReactComponent as SpinnerSvg } from '../../assets/icons/spinner.svg';
-// import { ReactComponent as SpinnerSvg } from '../../assets/icons/spinner.svg';
+
+import styles from './button.module.css';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -9,6 +12,8 @@ export interface ButtonProps
   kind?: 'primary' | 'secondary' | 'outline';
   shape?: 'squard' | 'round';
   loading?: boolean;
+  IconLeft?: SVGIconProps;
+  IconRight?: SVGIconProps;
   onClick?: (e: React.MouseEvent) => void;
 }
 
@@ -19,6 +24,8 @@ export function Button({
   shape = 'squard',
   loading = false,
   disabled,
+  IconLeft,
+  IconRight,
   onClick,
   children,
   ...props
@@ -32,27 +39,20 @@ export function Button({
   return (
     <button
       className={classnames(
-        'group inline-flex justify-center items-center flex-grow-0 flex-shrink-0 border-solid border transition ease-in-out duration-300',
-        'disabled:cursor-not-allowed disabled:bg-netural-50 disabled:border-netural-50',
-        {
-          'bg-primary border-primary hover:border-primary-dark hover:bg-primary-dark focus:border-primary-dark focus:bg-primary-dark active:border-primary-dark active:bg-primary-dark':
-            kind === 'primary',
-          'bg-netural-20 border-netural-20 hover:border-netural-30 hover:bg-netural-30 focus:border-netural-30 focus:bg-netural-30 active:border-netural-70 active:bg-netural-70':
-            kind === 'secondary',
-          'border-netural-70 hover:bg-netural-30 focus:bg-netural-30 active:bg-netural-70':
-            kind === 'outline',
-        },
-        {
-          'h-[30px] px-[8px]': size === 'xs',
-          'h-[40px] px-[12px]': size === 'sm',
-          'h-[48px] px-[16px]': size === 'md',
-        },
+        styles['btn'],
+        kind === 'primary' && styles['kind-primary'],
+        kind === 'secondary' && styles['kind-secondary'],
+        kind === 'outline' && styles['kind-outline'],
+        size === 'xs' && classnames(styles['size-xs'], 'h-[30px] px-[8px]'),
+        size === 'sm' && classnames(styles['size-sm'], 'h-[40px] px-[12px]'),
+        size === 'md' && classnames(styles['size-md'], 'h-[48px] px-[16px]'),
         {
           rounded: shape === 'squard',
           'rounded-[25px]': shape === 'round' && size === 'xs',
           'rounded-[20px]': shape === 'round' && size === 'sm',
           'rounded-[24px]': shape === 'round' && size === 'md',
         },
+        'group',
         className
       )}
       type="button"
@@ -64,32 +64,25 @@ export function Button({
       }}
       {...props}
     >
-      {loading && (
+      {!disabled && loading ? (
         <SpinnerSvg
-          className={classnames(
-            'animate-spin-slow',
-            'group-disabled:fill-netural-10',
-            {
-              'fill-netural-10': kind === 'primary',
-              'fill-netural-70 group-active:fill-netural-10':
-                kind === 'secondary' || kind === 'outline',
-            },
-            {
-              'not-last:mr-[4px]': size === 'xs',
-              'not-last:mr-[8px]': size === 'sm' || size === 'md',
-            }
-          )}
+          className={classnames(styles['icon'], 'animate-spin-slow')}
           width={iconSize}
         />
+      ) : (
+        IconLeft &&
+        IconLeft.SVG && (
+          <IconLeft.SVG
+            className={classnames(styles['icon'])}
+            width={iconSize}
+            {...IconLeft.props}
+          />
+        )
       )}
       <span
         className={classnames(
           'whitespace-nowrap font-bold leading-[112.5%] transition-[color] ease-in-out duration-300',
           'group-disabled:text-netural-10',
-          {
-            'not-last:mr-[4px]': size === 'xs',
-            'not-last:mr-[8px]': size === 'sm' || size === 'md',
-          },
           {
             'text-[12px]': size === 'xs' || size === 'sm',
             'text-[16px]': size === 'md',
@@ -103,6 +96,13 @@ export function Button({
       >
         {children}
       </span>
+      {IconRight && IconRight.SVG && (
+        <IconRight.SVG
+          className={classnames(styles['icon'])}
+          width={iconSize}
+          {...IconRight.props}
+        />
+      )}
     </button>
   );
 }
