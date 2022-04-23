@@ -1,5 +1,8 @@
 import classnames from 'classnames';
 
+import { ReactComponent as SpinnerSvg } from '../../assets/icons/spinner.svg';
+// import { ReactComponent as SpinnerSvg } from '../../assets/icons/spinner.svg';
+
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'xs' | 'sm' | 'md';
@@ -20,6 +23,12 @@ export function Button({
   children,
   ...props
 }: ButtonProps) {
+  const iconSize = {
+    xs: 12,
+    sm: 16,
+    md: 16,
+  }[size];
+
   return (
     <button
       className={classnames(
@@ -55,6 +64,24 @@ export function Button({
       }}
       {...props}
     >
+      {loading && (
+        <SpinnerSvg
+          className={classnames(
+            'animate-spin-slow',
+            'group-disabled:fill-netural-10',
+            {
+              'fill-netural-10': kind === 'primary',
+              'fill-netural-70 group-active:fill-netural-10':
+                kind === 'secondary' || kind === 'outline',
+            },
+            {
+              'not-last:mr-[4px]': size === 'xs',
+              'not-last:mr-[8px]': size === 'sm' || size === 'md',
+            }
+          )}
+          width={iconSize}
+        />
+      )}
       <span
         className={classnames(
           'whitespace-nowrap font-bold leading-[112.5%] transition-[color] ease-in-out duration-300',

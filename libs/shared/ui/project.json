@@ -43,7 +43,7 @@
         "config": {
           "configFolder": "libs/shared/ui/.storybook"
         },
-        "styles": ["libs/lib1/.storybook/tailwind-imports.css"]
+        "styles": ["libs/shared/ui/.storybook/tailwind-imports.css"]
       },
       "configurations": {
         "ci": {

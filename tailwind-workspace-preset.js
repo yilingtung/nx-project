@@ -24,7 +24,11 @@ module.exports = {
       },
     },
     borderRadius: { DEFAULT: '4px' },
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
+    },
   },
   variants: {
     extend: {
