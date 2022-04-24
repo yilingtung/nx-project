@@ -1,6 +1,6 @@
 {
-  "root": "libs/shared/ui",
-  "sourceRoot": "libs/shared/ui/src",
+  "root": "libs/blog/shared/ui",
+  "sourceRoot": "libs/blog/shared/ui/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -8,14 +8,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/shared/ui/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/blog/shared/ui/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/ui"],
+      "outputs": ["coverage/libs/blog/shared/ui"],
       "options": {
-        "jestConfig": "libs/shared/ui/jest.config.js",
+        "jestConfig": "libs/blog/shared/ui/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -25,9 +25,9 @@
         "uiFramework": "@storybook/react",
         "port": 4400,
         "config": {
-          "configFolder": "libs/shared/ui/.storybook"
+          "configFolder": "libs/blog/shared/ui/.storybook"
         },
-        "styles": ["libs/shared/ui/.storybook/tailwind-imports.css"]
+        "styles": ["libs/blog/shared/ui/.storybook/tailwind-imports.css"]
       },
       "configurations": {
         "ci": {
@@ -40,11 +40,11 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/shared-ui",
+        "outputPath": "dist/storybook/blog-shared-ui",
         "config": {
-          "configFolder": "libs/shared/ui/.storybook"
+          "configFolder": "libs/blog/shared/ui/.storybook"
         },
-        "styles": ["libs/shared/ui/.storybook/tailwind-imports.css"]
+        "styles": ["libs/blog/shared/ui/.storybook/tailwind-imports.css"]
       },
       "configurations": {
         "ci": {

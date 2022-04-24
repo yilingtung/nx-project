@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-project/blog/shared/ui": ["libs/blog/shared/ui/src/index.ts"],
       "@nx-project/shared/types": ["libs/shared/types/src/index.ts"],
       "@nx-project/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
