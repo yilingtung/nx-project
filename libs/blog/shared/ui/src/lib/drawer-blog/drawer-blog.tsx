@@ -1,4 +1,5 @@
 import { twMerge } from 'tailwind-merge';
+import { Link } from 'react-router-dom';
 
 import {
   Drawer,
@@ -65,19 +66,23 @@ export function DrawerBlog({
                 管理
               </ListItemText>
             </ListItem>
-          )}
-          <ListItem>
-            <ListItemIcon>
-              <PostSvg />
-            </ListItemIcon>
-            {isOpen && <ListItemText>貼文</ListItemText>}
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <ProductSvg />
-            </ListItemIcon>
-            {isOpen && <ListItemText>產品</ListItemText>}
-          </ListItem>
+          )}{' '}
+          <Link to="/post">
+            <ListItem>
+              <ListItemIcon>
+                <PostSvg />
+              </ListItemIcon>
+              {isOpen && <ListItemText>貼文</ListItemText>}
+            </ListItem>
+          </Link>
+          <Link to="/product">
+            <ListItem>
+              <ListItemIcon>
+                <ProductSvg />
+              </ListItemIcon>
+              {isOpen && <ListItemText>產品</ListItemText>}
+            </ListItem>
+          </Link>
           <ListItem>
             <ListItemIcon>
               <AccountBoxSvg />
