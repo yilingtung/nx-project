@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { DrawerBlog, Header } from '@nx-project/blog/shared/ui';
+import {
+  Button,
+  Header,
+  HeaderActionGroup,
+  HeaderTitle,
+} from '@nx-project/shared/ui';
+import { DrawerDashboard } from '@nx-project/dashboard/shared/ui';
+import { pagePathParser } from '@nx-project/dashboard/shared/utils';
 import {
   DRAWER_COLLAPSE_WIDTH,
   DRAWER_EXPAND_WIDTH,
