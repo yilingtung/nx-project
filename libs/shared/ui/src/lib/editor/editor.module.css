@@ -1,0 +1,19 @@
+:global(.codex-editor) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+:global(.codex-editor__redactor) {
+  min-height: 100%;
+  flex: 1;
+}
+
+:global(.codex-editor__redactor) {
+  padding-top: 24px;
+}
+
+:global(.ce-block__content),
+:global(.ce-toolbar__content) {
+  max-width: calc(100% - 240px);
+}

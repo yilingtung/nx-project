@@ -2,6 +2,8 @@ import { StrictMode } from 'react';
 import * as ReactDOMClient from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
+import { EditorProvider } from './contexts/editorContext';
+
 import App from './app/app';
 
 const root = ReactDOMClient.createRoot(
@@ -10,7 +12,9 @@ const root = ReactDOMClient.createRoot(
 root.render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <EditorProvider>
+        <App />
+      </EditorProvider>
     </BrowserRouter>
   </StrictMode>
 );

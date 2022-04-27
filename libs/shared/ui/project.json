@@ -26,8 +26,7 @@
         "port": 4400,
         "config": {
           "configFolder": "libs/shared/ui/.storybook"
-        },
-        "styles": ["libs/shared/ui/.storybook/tailwind-imports.css"]
+        }
       },
       "configurations": {
         "ci": {
@@ -43,8 +42,7 @@
         "outputPath": "dist/storybook/shared-ui",
         "config": {
           "configFolder": "libs/shared/ui/.storybook"
-        },
-        "styles": ["libs/shared/ui/.storybook/tailwind-imports.css"]
+        }
       },
       "configurations": {
         "ci": {

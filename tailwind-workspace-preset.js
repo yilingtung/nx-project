@@ -23,7 +23,7 @@ module.exports = {
         10: '#fff',
       },
     },
-    borderRadius: { DEFAULT: '4px' },
+    borderRadius: { DEFAULT: '4px', full: '9999px' },
     extend: {
       animation: {
         'spin-slow': 'spin 3s linear infinite',
