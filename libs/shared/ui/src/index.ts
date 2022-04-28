@@ -1,3 +1,6 @@
+export * from './lib/tab/tab';
+export * from './lib/tabs/tabs';
+export * from './lib/card-post/card-post';
 export * from './lib/editor-title/editor-title';
 export * from './lib/avatar-name/avatar-name';
 export * from './lib/avatar/avatar';

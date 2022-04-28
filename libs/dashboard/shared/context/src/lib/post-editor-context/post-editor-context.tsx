@@ -9,7 +9,7 @@ import {
   useCallback,
 } from 'react';
 import EditorJS, { EditorConfig } from '@editorjs/editorjs';
-import EDITOR_JS_TOOLS from '../config/EDITOR_JS_TOOLS';
+import EDITOR_JS_TOOLS from './tools';
 
 type EditorStatus =
   | 'SETTING'
@@ -24,7 +24,7 @@ type InitializeEditorFunc = (options: {
   editorConfig: EditorConfig;
 }) => void;
 
-export const EditorContext = createContext([null, null] as unknown as [
+export const PostEditorContext = createContext([null, null] as unknown as [
   {
     status: EditorStatus;
     title: string;
@@ -38,9 +38,9 @@ export const EditorContext = createContext([null, null] as unknown as [
   }
 ]);
 
-export const useEditorContext = () => useContext(EditorContext);
+export const usePostEditorContext = () => useContext(PostEditorContext);
 
-export const EditorProvider = ({ children }: { children: ReactNode }) => {
+export const PostEditorProvider = ({ children }: { children: ReactNode }) => {
   const editorRef = useRef<EditorJS | null>(null);
   const [status, setStatus] = useState<EditorStatus>('SETTING');
   const [title, setTitle] = useState('');
@@ -86,7 +86,7 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
   }, [title]);
 
   return (
-    <EditorContext.Provider
+    <PostEditorContext.Provider
       value={[
         {
           status,
@@ -96,6 +96,6 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
       ]}
     >
       {children}
-    </EditorContext.Provider>
+    </PostEditorContext.Provider>
   );
 };

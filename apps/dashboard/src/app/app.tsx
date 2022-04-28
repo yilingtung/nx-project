@@ -1,8 +1,7 @@
 import { Routes, Route, Outlet } from 'react-router-dom';
+import { PostEditPage, PostListPage } from '@nx-project/dashboard/feature/page';
 
 import MainLayout from '../layouts/main';
-import PostsPage from '../pages/posts';
-import PostPage from '../pages/posts/[id]';
 
 export function App() {
   return (
@@ -17,8 +16,8 @@ export function App() {
       >
         <Route index element={<div>home</div>} />
         <Route path="posts">
-          <Route index element={<PostsPage />} />
-          <Route path=":postId" element={<PostPage />} />
+          <Route index element={<PostListPage />} />
+          <Route path=":postId" element={<PostEditPage />} />
         </Route>
         <Route path="*" element={<div>not found</div>} />
       </Route>

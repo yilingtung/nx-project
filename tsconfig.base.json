@@ -15,6 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-project/dashboard/feature/page": [
+        "libs/dashboard/feature/page/src/index.ts"
+      ],
+      "@nx-project/dashboard/shared/context": [
+        "libs/dashboard/shared/context/src/index.ts"
+      ],
       "@nx-project/dashboard/shared/ui": [
         "libs/dashboard/shared/ui/src/index.ts"
       ],

@@ -10,12 +10,12 @@ import {
 } from '@nx-project/shared/ui';
 import { DrawerDashboard } from '@nx-project/dashboard/shared/ui';
 import { pagePathParser } from '@nx-project/dashboard/shared/utils';
+import { usePostEditorContext } from '@nx-project/dashboard/shared/context';
 import {
   DRAWER_COLLAPSE_WIDTH,
   DRAWER_EXPAND_WIDTH,
   HEADER_HEIGHT,
 } from '../../config/CONSTANTS';
-import { useEditorContext } from '../../contexts/editorContext';
 
 import { ReactComponent as ArrowSvg } from '../../assets/icons/arrow-left.svg';
 
@@ -26,7 +26,7 @@ export interface MainLayoutProps {
 
 export function MainLayout({ className, children }: MainLayoutProps) {
   const { pathname } = useLocation();
-  const [{ status: editorStatus }, { saveEditor }] = useEditorContext();
+  const [{ status: editorStatus }, { saveEditor }] = usePostEditorContext();
 
   const page = useMemo(() => {
     return pagePathParser(pathname);
@@ -111,7 +111,7 @@ export function MainLayout({ className, children }: MainLayoutProps) {
         />
       </div>
       <main
-        className="app flex-1 min-h-screen"
+        className="app flex-1 min-h-screen overflow-x-hidden"
         style={{ paddingTop: `${HEADER_HEIGHT}px` }}
       >
         {children}

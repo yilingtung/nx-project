@@ -3,6 +3,8 @@
   "projects": {
     "dashboard": "apps/dashboard",
     "dashboard-e2e": "apps/dashboard-e2e",
+    "dashboard-feature-page": "libs/dashboard/feature/page",
+    "dashboard-shared-context": "libs/dashboard/shared/context",
     "dashboard-shared-ui": "libs/dashboard/shared/ui",
     "dashboard-shared-utils": "libs/dashboard/shared/utils",
     "shared-types": "libs/shared/types",

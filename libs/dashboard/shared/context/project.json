@@ -1,0 +1,17 @@
+{
+  "root": "libs/dashboard/shared/context",
+  "sourceRoot": "libs/dashboard/shared/context/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/dashboard/shared/context/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    }
+  }
+}

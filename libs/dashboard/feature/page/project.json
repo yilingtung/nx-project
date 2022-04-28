@@ -1,6 +1,6 @@
 {
-  "root": "libs/dashboard/shared/utils",
-  "sourceRoot": "libs/dashboard/shared/utils/src",
+  "root": "libs/dashboard/feature/page",
+  "sourceRoot": "libs/dashboard/feature/page/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -8,7 +8,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/dashboard/shared/utils/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/dashboard/feature/page/**/*.{ts,tsx,js,jsx}"]
       }
     }
   }
