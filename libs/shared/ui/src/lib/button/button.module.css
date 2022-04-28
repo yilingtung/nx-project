@@ -1,42 +1,255 @@
-.btn {
-  @apply inline-flex justify-center items-center flex-grow-0 flex-shrink-0 border-solid border transition ease-in-out duration-300;
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 1px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  & span {
+    font-weight: 700;
+    line-height: 112.5%;
+    transition: color 0.3s ease;
+  }
+
+  & .icon.loading {
+    animation: spin 3s linear infinite;
+  }
+
+  &.size-xs {
+    height: 30px;
+    padding: 0 8px;
+
+    &.border-round {
+      border-radius: 15px;
+    }
+
+    & > :not(:last-child) {
+      margin-right: 4px;
+    }
+
+    & span {
+      font-size: 12px;
+    }
+  }
+
+  &.size-sm {
+    height: 40px;
+    padding: 0 12px;
+
+    &.border-round {
+      border-radius: 20px;
+    }
+
+    & > :not(:last-child) {
+      margin-right: 8px;
+    }
+
+    & span {
+      font-size: 12px;
+    }
+  }
+
+  &.size-md {
+    height: 48px;
+    padding: 0 16px;
+
+    &.border-round {
+      border-radius: 24px;
+    }
+
+    & > :not(:last-child) {
+      margin-right: 8px;
+    }
+
+    & span {
+      font-size: 16px;
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: theme('colors.netural.50');
+    border-color: theme('colors.netural.50');
+
+    & span {
+      color: theme('colors.netural.10');
+    }
+
+    & > svg {
+      pointer-events: none;
+
+      &.fill path {
+        fill: theme('colors.netural.10');
+      }
+
+      &.stroke path {
+        stroke: theme('colors.netural.10');
+      }
+    }
+  }
+
+  &:not([disabled]).kind-primary {
+    border-color: theme('colors.primary.DEFAULT');
+    background-color: theme('colors.primary.DEFAULT');
+
+    & span {
+      color: white;
+    }
+
+    & > svg {
+      &.fill path {
+        fill: white;
+      }
+
+      &.stroke path {
+        stroke: white;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus,
+    &.pressed {
+      border-color: theme('colors.primary.dark');
+      background-color: theme('colors.primary.dark');
+    }
+  }
+
+  &:not([disabled]).kind-secondary {
+    border-color: theme('colors.netural.20');
+    background-color: theme('colors.netural.20');
+
+    & span {
+      color: theme('colors.netural.70');
+    }
+
+    & > svg {
+      &.fill path {
+        fill: theme('colors.netural.70');
+      }
+
+      &.stroke path {
+        stroke: theme('colors.netural.70');
+      }
+    }
+
+    &:hover,
+    &:focus {
+      border-color: theme('colors.netural.30');
+      background-color: theme('colors.netural.30');
+    }
+
+    &:active,
+    &.pressed {
+      border-color: theme('colors.netural.70');
+      background-color: theme('colors.netural.70');
+
+      & span {
+        color: theme('colors.netural.10');
+      }
+
+      & > svg {
+        &.fill path {
+          fill: theme('colors.netural.10');
+        }
+
+        &.stroke path {
+          stroke: theme('colors.netural.10');
+        }
+      }
+    }
+  }
+
+  &:not([disabled]).kind-outline {
+    border-color: theme('colors.netural.70');
+    background-color: transparent;
+
+    & span {
+      color: theme('colors.netural.70');
+    }
+
+    & > svg {
+      &.fill path {
+        fill: theme('colors.netural.70');
+      }
+
+      &.stroke path {
+        stroke: theme('colors.netural.70');
+      }
+    }
+
+    &:hover,
+    &:focus {
+      background-color: theme('colors.netural.30');
+    }
+
+    &:active,
+    &.pressed {
+      border-color: theme('colors.netural.10');
+      background-color: theme('colors.netural.70');
+
+      & span {
+        color: theme('colors.netural.10');
+      }
+
+      & > svg {
+        &.fill path {
+          fill: theme('colors.netural.10');
+        }
+
+        &.stroke path {
+          stroke: theme('colors.netural.10');
+        }
+      }
+    }
+  }
 }
 
-.btn[disabled] {
-  @apply disabled:cursor-not-allowed disabled:bg-netural-50 disabled:border-netural-50;
-}
+@keyframes spin {
+  10% {
+    opacity: 0.5;
+  }
 
-.btn:not([disabled]).kind-primary {
-  @apply bg-primary border-primary hover:border-primary-dark hover:bg-primary-dark focus:border-primary-dark focus:bg-primary-dark active:border-primary-dark active:bg-primary-dark;
-}
+  20% {
+    opacity: 1;
+  }
 
-.btn:not([disabled]).kind-secondary {
-  @apply bg-netural-20 border-netural-20 hover:border-netural-30 hover:bg-netural-30 focus:border-netural-30 focus:bg-netural-30 active:border-netural-70 active:bg-netural-70;
-}
+  30% {
+    opacity: 0.5;
+  }
 
-.btn:not([disabled]).kind-outline {
-  @apply border-netural-70 hover:bg-netural-30 focus:bg-netural-30 active:bg-netural-70;
-}
+  40% {
+    opacity: 1;
+  }
 
-.btn.size-xs > * {
-  @apply not-last:mr-[4px];
-}
+  50% {
+    opacity: 0.5;
+  }
 
-.btn.size-sm > *,
-.btn.size-md > * {
-  @apply not-last:mr-[8px];
-}
+  60% {
+    opacity: 1;
+  }
 
-.icon {
-  pointer-events: none;
-}
+  70% {
+    opacity: 0.5;
+  }
 
-.btn[disabled] .icon path,
-.btn:not([disabled]).kind-primary .icon path {
-  @apply fill-netural-10 stroke-netural-10;
-}
+  80% {
+    opacity: 1;
+  }
 
-.btn:not([disabled]).kind-secondary .icon path,
-.btn:not([disabled]).kind-outline .icon path {
-  @apply fill-netural-70 stroke-netural-70 group-active:fill-netural-10 group-active:stroke-netural-10;
+  90% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
 }

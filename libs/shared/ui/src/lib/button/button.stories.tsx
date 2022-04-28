@@ -44,11 +44,11 @@ Default.args = {
 export const WithIconLeft = Template.bind({});
 WithIconLeft.args = {
   ...Default.args,
-  IconLeft: { SVG: PlusSvg, type: 'fill' },
+  IconLeft: { SVG: PlusSvg, type: 'stroke' },
 };
 
 export const WithIconRight = Template.bind({});
 WithIconRight.args = {
   ...Default.args,
-  IconRight: { SVG: PlusSvg, type: 'fill' },
+  IconRight: { SVG: PlusSvg, type: 'stroke' },
 };

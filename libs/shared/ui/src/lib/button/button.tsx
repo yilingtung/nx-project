@@ -1,4 +1,5 @@
-import classnames from 'classnames';
+import { twMerge } from 'tailwind-merge';
+import isEmpty from 'lodash/isEmpty';
 
 import { SVGIconProps } from '@nx-project/shared/types';
 
@@ -11,6 +12,7 @@ export interface ButtonProps
   size?: 'xs' | 'sm' | 'md';
   kind?: 'primary' | 'secondary' | 'outline';
   shape?: 'squard' | 'round';
+  status?: 'default' | 'pressed';
   loading?: boolean;
   IconLeft?: SVGIconProps;
   IconRight?: SVGIconProps;
@@ -22,6 +24,7 @@ export function Button({
   size = 'sm',
   kind = 'primary',
   shape = 'squard',
+  status = 'default',
   loading = false,
   disabled,
   IconLeft,
@@ -38,21 +41,12 @@ export function Button({
 
   return (
     <button
-      className={classnames(
-        styles['btn'],
-        kind === 'primary' && styles['kind-primary'],
-        kind === 'secondary' && styles['kind-secondary'],
-        kind === 'outline' && styles['kind-outline'],
-        size === 'xs' && classnames(styles['size-xs'], 'h-[30px] px-[8px]'),
-        size === 'sm' && classnames(styles['size-sm'], 'h-[40px] px-[12px]'),
-        size === 'md' && classnames(styles['size-md'], 'h-[48px] px-[16px]'),
-        {
-          rounded: shape === 'squard',
-          'rounded-[25px]': shape === 'round' && size === 'xs',
-          'rounded-[20px]': shape === 'round' && size === 'sm',
-          'rounded-[24px]': shape === 'round' && size === 'md',
-        },
-        'group',
+      className={twMerge(
+        styles['button'],
+        styles[`size-${size}`],
+        styles[`kind-${kind}`],
+        status === 'pressed' && styles['pressed'],
+        shape === 'round' && styles['border-round'],
         className
       )}
       type="button"
@@ -66,39 +60,29 @@ export function Button({
     >
       {!disabled && loading ? (
         <SpinnerSvg
-          className={classnames(styles['icon'], 'animate-spin-slow')}
+          className={twMerge(styles['icon'], styles['loading'], styles['fill'])}
           width={iconSize}
         />
       ) : (
         IconLeft &&
         IconLeft.SVG && (
           <IconLeft.SVG
-            className={classnames(styles['icon'])}
+            className={twMerge(
+              styles['icon'],
+              !isEmpty(IconLeft.type) && styles[`${IconLeft.type}`]
+            )}
             width={iconSize}
             {...IconLeft.props}
           />
         )
       )}
-      <span
-        className={classnames(
-          'whitespace-nowrap font-bold leading-[112.5%] transition-[color] ease-in-out duration-300',
-          'group-disabled:text-netural-10',
-          {
-            'text-[12px]': size === 'xs' || size === 'sm',
-            'text-[16px]': size === 'md',
-          },
-          {
-            'text-netural-10': kind === 'primary',
-            'text-netural-70 group-active:text-netural-10':
-              kind === 'secondary' || kind === 'outline',
-          }
-        )}
-      >
-        {children}
-      </span>
+      <span>{children}</span>
       {IconRight && IconRight.SVG && (
         <IconRight.SVG
-          className={classnames(styles['icon'])}
+          className={twMerge(
+            styles['icon'],
+            !isEmpty(IconRight.type) && styles[IconRight.type]
+          )}
           width={iconSize}
           {...IconRight.props}
         />
