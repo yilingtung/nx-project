@@ -1,3 +1,4 @@
+export * from './lib/dropdown/dropdown';
 export * from './lib/tab/tab';
 export * from './lib/tabs/tabs';
 export * from './lib/card-post/card-post';

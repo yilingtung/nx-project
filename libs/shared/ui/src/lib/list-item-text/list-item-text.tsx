@@ -10,7 +10,7 @@ export function ListItemText({ className, children }: ListItemTextProps) {
     <div
       className={twMerge(
         'flex flex-1 text-[14px] text-netural-70 overflow-hidden',
-        className || ''
+        className
       )}
     >
       <span className="overflow-hidden text-ellipsis whitespace-nowrap">

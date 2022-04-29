@@ -10,6 +10,7 @@
     "dashboard-shared-context": "libs/dashboard/shared/context",
     "dashboard-shared-utils": "libs/dashboard/shared/utils",
     "shared-data-access": "libs/shared/data-access",
+    "shared-hooks": "libs/shared/hooks",
     "shared-types": "libs/shared/types",
     "shared-ui": "libs/shared/ui"
   }
