@@ -17,7 +17,7 @@ import {
 } from '@nx-project/dashboard/shared/config';
 import DrawerLeft from '../drawer-left/drawer-left';
 
-import { ReactComponent as ArrowSvg } from '../../assets/icons/arrow-left.svg';
+import { ReactComponent as ArrowSvg } from '../../assets/icons/chevron-left.svg';
 
 export interface MainLayoutProps {
   className?: string;
