@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { MemoryRouter } from 'react-router-dom';
 import { DrawerLeft, DrawerLeftProps } from './drawer-left';
 
 export default {
@@ -18,7 +19,11 @@ export default {
   },
 } as Meta;
 
-const Template: Story<DrawerLeftProps> = (args) => <DrawerLeft {...args} />;
+const Template: Story<DrawerLeftProps> = (args) => (
+  <MemoryRouter initialEntries={['/']}>
+    <DrawerLeft {...args} />
+  </MemoryRouter>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
