@@ -21,7 +21,7 @@ import { ReactComponent as AccountBoxSvg } from '../../assets/icons/account-box.
 import { ReactComponent as NotificationsSvg } from '../../assets/icons/notifications.svg';
 import { ReactComponent as PaidSvg } from '../../assets/icons/paid.svg';
 
-export interface DrawerDashboardProps {
+export interface DrawerLeftProps {
   className?: string;
   isOpen?: boolean;
   isHide?: boolean;
@@ -30,14 +30,14 @@ export interface DrawerDashboardProps {
   toggleDrawer?: () => void;
 }
 
-export function DrawerDashboard({
+export function DrawerLeft({
   className,
   isOpen = false,
   isHide = false,
   expandWidth = 240,
   collapseWidth = 80,
   toggleDrawer,
-}: DrawerDashboardProps) {
+}: DrawerLeftProps) {
   return (
     <Drawer
       className={twMerge(className)}
@@ -142,4 +142,4 @@ export function DrawerDashboard({
   );
 }
 
-export default DrawerDashboard;
+export default DrawerLeft;

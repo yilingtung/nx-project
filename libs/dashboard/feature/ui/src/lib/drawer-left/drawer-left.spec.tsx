@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
-import DrawerDashboard from './drawer-dashboard';
+import DrawerLeft from './drawer-left';
 
-describe('DrawerDashboard', () => {
+describe('DrawerLeft', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<DrawerDashboard />, {
+    const { baseElement } = render(<DrawerLeft />, {
       wrapper: MemoryRouter,
     });
     expect(baseElement).toBeTruthy();

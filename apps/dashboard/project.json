@@ -15,10 +15,7 @@
         "main": "apps/dashboard/src/main.tsx",
         "polyfills": "apps/dashboard/src/polyfills.ts",
         "tsConfig": "apps/dashboard/tsconfig.app.json",
-        "assets": [
-          "apps/dashboard/src/favicon.ico",
-          "apps/dashboard/src/assets"
-        ],
+        "assets": ["apps/dashboard/src/favicon.ico"],
         "styles": ["apps/dashboard/src/styles.css"],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"

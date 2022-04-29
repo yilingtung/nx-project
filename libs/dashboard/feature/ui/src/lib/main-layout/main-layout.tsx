@@ -8,14 +8,14 @@ import {
   HeaderActionGroup,
   HeaderTitle,
 } from '@nx-project/shared/ui';
-import { DrawerDashboard } from '@nx-project/dashboard/shared/ui';
 import { pagePathParser } from '@nx-project/dashboard/shared/utils';
 import { usePostEditorContext } from '@nx-project/dashboard/shared/context';
 import {
   DRAWER_COLLAPSE_WIDTH,
   DRAWER_EXPAND_WIDTH,
   HEADER_HEIGHT,
-} from '../../config/CONSTANTS';
+} from '@nx-project/dashboard/shared/config';
+import DrawerLeft from '../drawer-left/drawer-left';
 
 import { ReactComponent as ArrowSvg } from '../../assets/icons/arrow-left.svg';
 
@@ -95,14 +95,13 @@ export function MainLayout({ className, children }: MainLayoutProps) {
       >
         {renderHeader}
       </Header>
-
       <div
         className="flex-shrink-0 transition-[width] ease-in-out duration-300 overflow-x-hidden"
         style={{
           width: `${leftDrawerWidth}px`,
         }}
       >
-        <DrawerDashboard
+        <DrawerLeft
           expandWidth={DRAWER_EXPAND_WIDTH}
           collapseWidth={DRAWER_COLLAPSE_WIDTH}
           isOpen={isDrawerOpen}
@@ -119,3 +118,5 @@ export function MainLayout({ className, children }: MainLayoutProps) {
     </div>
   );
 }
+
+export default MainLayout;

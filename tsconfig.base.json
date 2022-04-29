@@ -18,6 +18,12 @@
       "@nx-project/dashboard/feature/page": [
         "libs/dashboard/feature/page/src/index.ts"
       ],
+      "@nx-project/dashboard/feature/ui": [
+        "libs/dashboard/feature/ui/src/index.ts"
+      ],
+      "@nx-project/dashboard/shared/config": [
+        "libs/dashboard/shared/config/src/index.ts"
+      ],
       "@nx-project/dashboard/shared/context": [
         "libs/dashboard/shared/context/src/index.ts"
       ],

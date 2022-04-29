@@ -1,0 +1,25 @@
+{
+  "root": "libs/dashboard/shared/config",
+  "sourceRoot": "libs/dashboard/shared/config/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/dashboard/shared/config/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/dashboard/shared/config"],
+      "options": {
+        "jestConfig": "libs/dashboard/shared/config/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

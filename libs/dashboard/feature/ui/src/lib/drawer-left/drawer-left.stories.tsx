@@ -1,9 +1,9 @@
 import { Story, Meta } from '@storybook/react';
-import { DrawerDashboard, DrawerDashboardProps } from './drawer-dashboard';
+import { DrawerLeft, DrawerLeftProps } from './drawer-left';
 
 export default {
-  component: DrawerDashboard,
-  title: 'DrawerDashboard',
+  component: DrawerLeft,
+  title: 'DrawerLeft',
   argTypes: {
     isOpen: {
       control: {
@@ -18,9 +18,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<DrawerDashboardProps> = (args) => (
-  <DrawerDashboard {...args} />
-);
+const Template: Story<DrawerLeftProps> = (args) => <DrawerLeft {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

@@ -1,7 +1,6 @@
 import { Routes, Route, Outlet } from 'react-router-dom';
 import { PostEditPage, PostListPage } from '@nx-project/dashboard/feature/page';
-
-import MainLayout from '../layouts/main';
+import { MainLayout } from '@nx-project/dashboard/feature/ui';
 
 export function App() {
   return (
