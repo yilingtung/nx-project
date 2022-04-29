@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "api": "apps/api",
     "dashboard": "apps/dashboard",
     "dashboard-e2e": "apps/dashboard-e2e",
     "dashboard-feature-page": "libs/dashboard/feature/page",
@@ -8,6 +9,7 @@
     "dashboard-shared-config": "libs/dashboard/shared/config",
     "dashboard-shared-context": "libs/dashboard/shared/context",
     "dashboard-shared-utils": "libs/dashboard/shared/utils",
+    "shared-data-access": "libs/shared/data-access",
     "shared-types": "libs/shared/types",
     "shared-ui": "libs/shared/ui"
   }

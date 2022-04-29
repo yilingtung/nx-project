@@ -1,0 +1,15 @@
+overwrite: true
+schema: 'apps/api/src/app/schema.graphql' # GraphQL endpoint
+documents: 'libs/shared/data-access/src/lib/graphql/**/*.graphql.ts' # parse graphql operations in matching files
+generates:
+  libs/shared/data-access/src/lib/generated/generated.ts: # location for generated types, hooks and components
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withHooks: true
+      maybeValue: T
+      skipTypename: true
+      useTypeImports: true
+      enumsAsTypes: true

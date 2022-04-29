@@ -33,6 +33,9 @@
       "@nx-project/dashboard/shared/utils": [
         "libs/dashboard/shared/utils/src/index.ts"
       ],
+      "@nx-project/shared/data-access": [
+        "libs/shared/data-access/src/index.ts"
+      ],
       "@nx-project/shared/types": ["libs/shared/types/src/index.ts"],
       "@nx-project/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
